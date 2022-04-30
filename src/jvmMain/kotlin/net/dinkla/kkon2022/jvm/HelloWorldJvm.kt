@@ -6,8 +6,8 @@ import kotlinx.coroutines.runBlocking
 
 fun main() = runBlocking {
     launch {
-        delay(1000L)
-        println("World!")
+        delay(1000)
+        println("Kotlin Coroutines World!")
     }
     println("Hello")
 }
