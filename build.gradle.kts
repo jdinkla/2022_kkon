@@ -1,8 +1,10 @@
 import java.net.URI
 
-val kotlinxCoroutinesVersion = "1.6.1"
+val kotlinxCoroutinesVersion = "1.6.4"
 val logbackVersion = "1.2.11"
-val kotestVersion = "5.3.0"
+val kotestVersion = "5.4.2"
+val coroutinesVersion = "1.6.4"
+val mockkVersion = "1.12.7"
 
 group = "net.dinkla"
 version = "1.0"
@@ -15,8 +17,8 @@ buildscript {
 }
 
 plugins {
-    kotlin("multiplatform") version "1.6.21"
-    id("io.kotest.multiplatform") version "5.0.2"
+    kotlin("multiplatform") version "1.7.10"
+    id("io.kotest.multiplatform") version "5.4.2"
     application
 }
 
@@ -40,7 +42,8 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
+                implementation(kotlin("script-runtime"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
             }
         }
         val commonTest by getting {
@@ -48,13 +51,8 @@ kotlin {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
-                // implementation("io.kotest:kotest:$kotestVersion")
-                // implementation("io.kotest:kotest-property:$kotestVersion")
-                // implementation("io.kotest:kotest-assertions-core:$kotestVersion")
-                // implementation("io.kotest:kotest-framework-engine:$kotestVersion")
-                // implementation("io.kotest:kotest-framework-datatest:$kotestVersion")
-                // implementation("org.jetbrains.kotlin:kotlin-test-common:1.6.0")
-                // implementation("org.jetbrains.kotlin:kotlin-test-annotations-common:1.6.0")
+                implementation("io.kotest:kotest-assertions-core:$kotestVersion")
+
             }
         }
         val jvmMain by getting {
@@ -67,6 +65,9 @@ kotlin {
             dependsOn(commonTest)
             dependencies {
                 implementation("io.kotest:kotest-runner-junit5-jvm:$kotestVersion")
+                implementation("io.mockk:mockk:$mockkVersion")
+                implementation("io.kotest:kotest-runner-junit5-jvm:$kotestVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-debug:1.6.4")
             }
         }
         val jsMain by getting {
