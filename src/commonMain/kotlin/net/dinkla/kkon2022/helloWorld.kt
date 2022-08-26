@@ -7,7 +7,7 @@ import kotlinx.coroutines.launch
 suspend fun helloWorld() = coroutineScope {
     launch {
         delay(1000)
-        println("Kotlin Coroutines World!")
+        println("World!")
     }
     println("Hello")
 }
