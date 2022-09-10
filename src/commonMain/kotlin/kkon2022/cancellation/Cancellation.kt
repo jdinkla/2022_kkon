@@ -17,9 +17,3 @@ suspend fun timeOut(job: Job, ms: Long) = coroutineScope {
         job.cancel()
     }
 }
-
-fun main() = runBlocking {
-    val job = createJob(1000L)
-    timeOut(job, 100L)
-    job.join()
-}
