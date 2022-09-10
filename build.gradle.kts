@@ -52,7 +52,7 @@ kotlin {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
                 implementation("io.kotest:kotest-assertions-core:$kotestVersion")
-
+                implementation("io.kotest:kotest-framework-engine:$kotestVersion")
             }
         }
         val jvmMain by getting {
@@ -66,7 +66,6 @@ kotlin {
             dependencies {
                 implementation("io.kotest:kotest-runner-junit5-jvm:$kotestVersion")
                 implementation("io.mockk:mockk:$mockkVersion")
-                implementation("io.kotest:kotest-runner-junit5-jvm:$kotestVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-debug:1.6.4")
             }
         }
