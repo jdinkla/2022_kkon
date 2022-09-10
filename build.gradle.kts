@@ -1,6 +1,5 @@
 import java.net.URI
 
-val kotlinxCoroutinesVersion = "1.6.4"
 val logbackVersion = "1.2.11"
 val kotestVersion = "5.4.2"
 val coroutinesVersion = "1.6.4"
