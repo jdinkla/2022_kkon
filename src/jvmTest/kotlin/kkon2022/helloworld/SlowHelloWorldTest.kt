@@ -2,6 +2,7 @@ package kkon2022.helloworld
 
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.longs.shouldBeGreaterThan
+import kkon2022.helloworld.helloWorld
 import kotlin.system.measureTimeMillis
 
 class SlowHelloWorldTest : StringSpec({
