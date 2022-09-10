@@ -18,6 +18,7 @@ buildscript {
 plugins {
     kotlin("multiplatform") version "1.7.10"
     id("io.kotest.multiplatform") version "5.4.2"
+    kotlin("plugin.serialization") version "1.7.10"
     application
 }
 
@@ -32,9 +33,6 @@ kotlin {
     jvm()
     js() {
         nodejs()
-        binaries.executable()
-    }
-    linuxX64() {
         binaries.executable()
     }
     sourceSets {
