@@ -1,4 +1,4 @@
-package net.dinkla.kkon2022
+package kkon2022.helloworld
 
 import kotlinx.coroutines.runBlocking
 
