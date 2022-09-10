@@ -72,7 +72,8 @@ kotlin {
             dependencies {
                 implementation("io.kotest:kotest-runner-junit5-jvm:$kotestVersion")
                 implementation("io.mockk:mockk:$mockkVersion")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-debug:1.6.4")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-debug:$coroutinesVersion")
+                implementation("app.cash.turbine:turbine:0.9.0")
             }
         }
         val jsMain by getting {
