@@ -13,12 +13,12 @@ class PersonAsync(
 
 suspend fun createPersonAsync(client: Client, url: String) = coroutineScope {
     val dto = client.get(url).body<PersonDto>()
-    val coroutines = dto.films.map {
+    val films = dto.films.map {
         async {
             client.get(it).body<Film>()
         }
     }
-    PersonAsync(dto.name, coroutines)
+    PersonAsync(dto.name, films)
 }
 
 fun main() {

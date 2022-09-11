@@ -8,7 +8,7 @@ import kotlin.system.measureTimeMillis
 
 fun main() = runBlocking {
     val ms = measureTimeMillis {
-        val jobs = (1..1_000_000).map { id ->
+        val jobs = (1..1_000_000).map {
             launch {
                 delay(1000L)
             }
