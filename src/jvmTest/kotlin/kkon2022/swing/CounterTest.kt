@@ -3,7 +3,7 @@ package kkon2022.swing
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 import io.mockk.mockk
-import io.mockk.verify
+import io.mockk.verifyAll
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.currentTime
@@ -26,8 +26,10 @@ class CounterTest : StringSpec({
         }
 
         // Then - Assert
-        verify { callback.invoke(0) }
-        verify { callback.invoke(1) }
-        verify { callback.invoke(2) }
+        verifyAll {
+            callback.invoke(0)
+            callback.invoke(1)
+            callback.invoke(2)
+        }
     }
 })
