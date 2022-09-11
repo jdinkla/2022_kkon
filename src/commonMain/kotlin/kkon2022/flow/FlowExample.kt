@@ -3,7 +3,6 @@ package kkon2022.flow
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.runBlocking
 
 suspend fun produce() = flow {
     println("start")
@@ -20,8 +19,4 @@ suspend fun consume(flow: Flow<Int>) {
         .collect() {
             println("collected $it")
         }
-}
-
-fun main() = runBlocking {
-    consume(produce())
 }
