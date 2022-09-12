@@ -31,7 +31,7 @@ class StarWarsDebugTest : StringSpec({
         coEvery { client.get("someOtherFilmURL") } returns response
 
         // When - Act
-        val person = createPerson(client, "someUrl")
+        createPerson(client, "someUrl")
 
         // Then - Assert
         DebugProbes.uninstall()
