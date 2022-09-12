@@ -38,6 +38,9 @@ kotlin {
         nodejs()
         binaries.executable()
     }
+    linuxX64() {
+        binaries.executable()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -83,8 +86,13 @@ kotlin {
         val jsTest by getting {
             dependsOn(commonTest)
         }
+        val linuxX64Main by getting {
+            dependsOn(commonMain)
+        }
+        val linuxX64Test by getting {
+            dependsOn(commonTest)
+        }
     }
-
 }
 
 tasks.named<Test>("jvmTest") {
