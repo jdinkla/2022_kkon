@@ -1,7 +1,9 @@
 package kkon2022
 
 import kkon2022.helloworld.helloWorld
+import kotlinx.coroutines.runBlocking
 
-suspend fun main() {
+fun main() = runBlocking {
+    println("From Linux")
     helloWorld()
 }
