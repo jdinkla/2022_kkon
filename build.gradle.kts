@@ -33,7 +33,9 @@ repositories {
 }
 
 kotlin {
-    jvm()
+    jvm() {
+        withJava()
+    }
     js() {
         nodejs()
         binaries.executable()
@@ -100,3 +102,7 @@ tasks.named<Test>("jvmTest") {
     useJUnitPlatform()
 }
 
+task<JavaExec>("swing") {
+    main = "kkon2022.swing.SwingWithCoroutinesKt"
+    classpath = sourceSets["main"].runtimeClasspath
+}
