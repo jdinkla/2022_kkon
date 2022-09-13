@@ -1,5 +1,6 @@
 package kkon2022.swing
 
+import kkon2022.ui.Counter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.swing.Swing
 import java.awt.Font

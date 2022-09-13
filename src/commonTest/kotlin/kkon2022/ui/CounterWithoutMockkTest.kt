@@ -1,20 +1,19 @@
-package kkon2022.swing
+package kkon2022.ui
 
 import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.collections.shouldContainInOrder
 import io.kotest.matchers.shouldBe
-import io.mockk.mockk
-import io.mockk.verifyAll
-import kkon2022.ui.Counter
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.currentTime
 import kotlinx.coroutines.test.runTest
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class CounterTest : StringSpec({
+class CounterWithoutMockkTest : StringSpec({
     "start call callback three times in three seconds" {
         // Given - Arrange
-        val callback : (Int) -> Unit = mockk(relaxed = true)
+        val recorded = mutableListOf<Int>()
+        val callback: (Int) -> Unit = { recorded.add(it) }
 
         // When - Act
         runTest {
@@ -27,10 +26,6 @@ class CounterTest : StringSpec({
         }
 
         // Then - Assert
-        verifyAll {
-            callback.invoke(0)
-            callback.invoke(1)
-            callback.invoke(2)
-        }
+        recorded shouldContainInOrder listOf(0, 1, 2)
     }
 })

@@ -1,4 +1,4 @@
-package kkon2022.swing
+package kkon2022.ui
 
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext

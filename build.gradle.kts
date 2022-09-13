@@ -55,6 +55,7 @@ kotlin {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
                 implementation("io.kotest:kotest-assertions-core:$kotestVersion")
                 implementation("io.kotest:kotest-framework-engine:$kotestVersion")
             }
